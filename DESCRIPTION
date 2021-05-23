@@ -1,11 +1,11 @@
-Package: twelvedays
-Title: Sing the 12 Days of Christmas
+Package: Lab7
+Title: Anmol
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Kelly",
-           family = "Bodwin",
+    person(given = "Anmol",
+           family = "Lakhotia",
            role = c("aut", "cre"),
-           email = "kelly@bodwin.us")
+           email = "mrinal.lakhotia@gmail.com")
 Description: This is a practice package for coursework.
 License: What license it uses
 Encoding: UTF-8
