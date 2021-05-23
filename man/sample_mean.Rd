@@ -2,7 +2,7 @@
 % Please edit documentation in R/make_phrase.R
 \name{sample_mean}
 \alias{sample_mean}
-\title{}
+\title{not blank}
 \usage{
 sample_mean(vec, n)
 }
