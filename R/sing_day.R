@@ -1,11 +1,11 @@
-#' Produces the string for one day of the song.
+#' 
 #'
-#' @param dataset A data frame containing information about gifts
-#' @param line The number of the line for the day you want to sing about
-#' @param phrase_col The variable name for the column in the dataset that
-#' contains the gift phrases
+#' @param vec A numeric vector
+#' @param reps An integer
+#' @param n A integer vector for sample size
+#' 
 #'
-#' @return A string singing the line of the song with all gifts for the given day.
+#' @return A dataset with means and sample size
 #'
 #' @import stringr
 #' @import dplyr
@@ -15,16 +15,14 @@
 #' @import english
 #' @import tidyverse
 #' @export
-sing_day <- function(dataset, line, phrase_col){
 
-  val <- line
-  num_word <- ordinal(val)
-  og <- str_glue("On the {num_word} day of Christmas, my true love gave to me,")
-  phrase <- dataset %>% pull( {{phrase_col}})
-  phrase[1] <- paste0("and ", phrase[1], ".")
-  items <- str_c(phrase[val:1], collapse = ", \n")
-  str_glue("{og} \n{items}")
-
+sample_means_ns <- function(vec, reps, ns){
+  means <- map(ns, ~many_sample_means(vec, .x, reps))
+  sample_mean = unlist(means)
+  n = rep(ns, each = reps)
+  df <- data.frame(sample_mean, n)
+  names(df) <- c("sample_mean", "n")
+  return(df)
 }
 
 
